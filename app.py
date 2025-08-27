@@ -5,7 +5,7 @@ import pandas as pd
 import plotly.express as px
 
 # 1. Configuration  
-DATA_DIR      = "path/to/outputs"  
+DATA_DIR      =  Path(__file__).parent.parent
 FIGS_DIR      = f"{DATA_DIR}/figs"  
 TABLES_DIR    = f"{DATA_DIR}/tables"  
 SHAP_DIR      = f"{DATA_DIR}/shap_artifacts"  
