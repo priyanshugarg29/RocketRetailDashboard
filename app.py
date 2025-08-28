@@ -10,7 +10,7 @@ DATA_DIR      =  Path(__file__).parent.parent
 FIGS_DIR      = f"{DATA_DIR}/figs"  
 TABLES_DIR    = f"{DATA_DIR}/data"  
 SHAP_DIR      = f"{DATA_DIR}/shap"  
-SESSION_INDEX = pd.read_csv(f"{TABLES_DIR}/dataset_overview.csv")["sessions"]  # adjust  
+SESSION_INDEX = pd.read_csv(f"{TABLES_DIR}/20250827_195718_dataset_overview.csv")["sessions"]  # adjust  
 
 st.set_page_config(page_title="Rocket Retail Segmentation", layout="wide")
 
@@ -23,7 +23,7 @@ time_split = st.sidebar.checkbox("Show temporal drift", value=False)
 
 # 3. EDA Summary  
 st.header("Dataset Overview")  
-overview = pd.read_csv(f"{TABLES_DIR}/dataset_overview.csv")  
+overview = pd.read_csv(f"{TABLES_DIR}/20250827_195718_dataset_overview.csv")  
 st.metric("Total Events", f"{int(overview.rows):,}")  
 st.metric("Total Sessions", f"{int(overview.sessions):,}")  
 st.metric("Unique Visitors", f"{int(overview.visitors):,}")  
