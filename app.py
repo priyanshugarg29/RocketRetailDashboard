@@ -23,7 +23,7 @@ time_split = st.sidebar.checkbox("Show temporal drift", value=False)
 
 # 3. EDA Summary  
 st.header("Dataset Overview")  
-overview = pd.read_csv(f"{TABLES_DIR}/20250827_195718_dataset_overview.csv")  
+overview = pd.read_csv(f"{TABLES_DIR}/dataset_overview.csv")  
 st.metric("Total Events", f"{int(overview.rows):,}")  
 st.metric("Total Sessions", f"{int(overview.sessions):,}")  
 st.metric("Unique Visitors", f"{int(overview.visitors):,}")  
