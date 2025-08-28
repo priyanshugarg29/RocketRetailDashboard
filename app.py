@@ -53,11 +53,20 @@ st.plotly_chart(fig_funnel, use_container_width=True)
 # 6. UMAP Projection  
 st.header("UMAP Visualization")  
 coords = pd.read_csv(f"{TABLES_DIR}/20250827_195718_umap_all_models_coords.csv")  
-labels = pd.read_csv(f"{TABLES_DIR}/20250827_195718_cluster_labels_all_models.csv")  
+
+if lead_model == "rfm_proxy_kmeans_session_12":
+    labels = pd.read_csv(f"{TABLES_DIR}/20250827_195718_session_rfm_proxy_labels_k12.csv")
+    if "label" in labels.columns:
+        labels = labels.rename(columns={"label": lead_model})
+else:
+    labels = pd.read_csv(f"{TABLES_DIR}/20250827_195718_cluster_labels_all_models.csv")
+
+
 df_umap = coords.merge(labels[["session_id", lead_model]], on="session_id")  
 fig_umap = px.scatter(df_umap, x="umap_x", y="umap_y", color=lead_model,  
                       title=f"UMAP – {lead_model}", width=800, height=600, opacity=0.6)  
 st.plotly_chart(fig_umap, use_container_width=True)
+
 
 # 7. Internal Metrics Comparison  
 st.header("Model Evaluation Metrics")  
@@ -98,5 +107,5 @@ if show_shap:
 
 # 12. Footer  
 st.markdown("---")  
-st.markdown("© 2025 Rocket Retail Segmentation Dashboard")
+st.markdown("* 2025 Rocket Retail Segmentation Dashboard")
 
