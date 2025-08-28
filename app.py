@@ -8,8 +8,8 @@ from pathlib import Path
 # 1. Configuration  
 DATA_DIR      =  Path(__file__).parent.parent
 FIGS_DIR      = f"{DATA_DIR}/figs"  
-TABLES_DIR    = f"{DATA_DIR}/tables"  
-SHAP_DIR      = f"{DATA_DIR}/shap_artifacts"  
+TABLES_DIR    = f"{DATA_DIR}/data"  
+SHAP_DIR      = f"{DATA_DIR}/shap"  
 SESSION_INDEX = pd.read_csv(f"{TABLES_DIR}/20250827_195718_dataset_overview.csv")["sessions"]  # adjust  
 
 st.set_page_config(page_title="Rocket Retail Segmentation", layout="wide")
