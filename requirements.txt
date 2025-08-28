@@ -3,3 +3,4 @@ pandas
 plotly             # for interactive charts
 altair             # optional
 shap               # if you include SHAP explanations
+pathlib
