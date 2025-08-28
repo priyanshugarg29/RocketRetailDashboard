@@ -52,8 +52,8 @@ st.plotly_chart(fig_funnel, use_container_width=True)
 
 # 6. UMAP Projection  
 st.header("UMAP Visualization")  
-coords = pd.read_csv(f"{DATA_DIR}/20250827_195718_umap_all_models_coords.csv")  
-labels = pd.read_csv(f"{DATA_DIR}/20250827_195718_cluster_labels_all_models.csv")  
+coords = pd.read_csv(f"{TABLES_DIR}/20250827_195718_umap_all_models_coords.csv")  
+labels = pd.read_csv(f"{TABLES_DIR}/20250827_195718_cluster_labels_all_models.csv")  
 df_umap = coords.merge(labels[["session_id", lead_model]], on="session_id")  
 fig_umap = px.scatter(df_umap, x="umap_x", y="umap_y", color=lead_model,  
                       title=f"UMAP – {lead_model}", width=800, height=600, opacity=0.6)  
