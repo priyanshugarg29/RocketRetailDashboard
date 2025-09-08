@@ -71,6 +71,10 @@ This graph highlights where to act to turn interest into actual sales.""")
 
 # 6. UMAP Projection  
 st.header("UMAP Visualization")  
+
+st.markdown("""Below visualization maps customer sessions into a two-dimensional space where points closer to each other represent more similar shopping behaviours. Different clusters or groupings highlight different customer types, helping the business tailor its marketing, product, and service strategies to better meet their needs and achieve targets. 
+While the approach for grouping may vary, all models aim to uncover meaningful patterns in how customers interact with the site.""")
+
 coords = pd.read_csv(f"{TABLES_DIR}/20250827_195718_umap_all_models_coords.csv")  
 
 if lead_model == "rfm_proxy_kmeans_session_12":
@@ -85,10 +89,6 @@ df_umap = coords.merge(labels[["session_id", lead_model]], on="session_id")
 fig_umap = px.scatter(df_umap, x="umap_x", y="umap_y", color=lead_model,  
                       title=f"UMAP – {lead_model}", width=800, height=600, opacity=0.6)  
 st.plotly_chart(fig_umap, use_container_width=True)
-
-st.markdown("""Below visualization maps customer sessions into a two-dimensional space where points closer to each other represent more similar shopping behaviours. Different clusters or groupings highlight different customer types, helping the business tailor its marketing, product, and service strategies to better meet their needs and achieve targets. 
-While the approach for grouping may vary, all models aim to uncover meaningful patterns in how customers interact with the site.""")
-
 
 # 7. Internal Metrics Comparison  
 st.header("Model Evaluation Metrics")  
