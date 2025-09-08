@@ -27,7 +27,10 @@ overview = pd.read_csv(f"{TABLES_DIR}/20250827_195718_dataset_overview.csv")
 st.metric("Total Events", f"{int(overview.rows):,}")  
 st.metric("Total Sessions", f"{int(overview.sessions):,}")  
 st.metric("Unique Visitors", f"{int(overview.visitors):,}")  
-
+st.markdown("""
+This demonstrates the size and richness of Rocket Retail’s dataset by accounting for total events (e.g., clicks, views), sessions, and unique customers. 
+This confirms that the downstream insights are built on a robust and representative sample, reaffirming confidence in the following findings.
+""")
 # Event distribution  
 evt = pd.read_csv(f"{TABLES_DIR}/event_distribution.csv")  
 fig_evt = px.bar(evt, x="event", y="count", title="Event Distribution")  
