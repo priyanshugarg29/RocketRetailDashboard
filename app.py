@@ -80,6 +80,11 @@ if lead_model == "rfm_proxy_kmeans_session_12":
 else:
     labels = pd.read_csv(f"{TABLES_DIR}/20250827_195718_cluster_labels_all_models.csv")
 
+if lead_model == "rfm_proxy_kmeans_session_12":
+  st.markdown(""" Above UMAP visualizes how different groups of customer sessions are spread out, based on their shopping behaviour. 
+  Each dot (data point) represents a session, and similar sessions are placed closer together. 
+  The different shades and positions show that there are 12 main groups—each one found using patterns like how recently or how often someone shops, and how much they engage during their session.
+  Seeing these clusters helps the business understand that not all shoppers act the same way. Some groups may be regular buyers, some might just browse, and others could be new or hesitant. By knowing these groups, Rocket Retail can send more relevant messages, create better offers, and improve the customer experience for each type of shopper.""")
 
 df_umap = coords.merge(labels[["session_id", lead_model]], on="session_id")  
 fig_umap = px.scatter(df_umap, x="umap_x", y="umap_y", color=lead_model,  
