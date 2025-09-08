@@ -42,6 +42,7 @@ Since, most visitors browse without advancing further, it highlights the signifi
 
 # 4. Temporal Patterns  
 st.header("Temporal Patterns")  
+st.markdown("""Below temporal patterns reveal when the website is most and least active, helping managers align campaigns and support resources with peak demand times, maximizing operational efficiency and marketing impact.""")
 hr = pd.read_csv(f"{TABLES_DIR}/temporal_hour_event_counts.csv")  
 fig_hr = px.line(hr, x="hour", y="count", color="event", title="Hourly Event Volume")  
 st.plotly_chart(fig_hr, use_container_width=True)  
