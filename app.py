@@ -84,7 +84,7 @@ st.dataframe(ari)
 st.subheader("Adjusted Mutual Information (AMI)")  
 st.dataframe(ami)
 
-# 9. Temporal Drift (optional)  
+# 9. Temporal Drift
 if time_split:  
     st.header("Cluster Temporal Drift")  
     drift = pd.read_csv(f"{TABLES_DIR}/20250827_195718_eval_temporal_drift.csv")  
@@ -97,10 +97,10 @@ st.dataframe(persona.style.format({"share":"{:.2%}",
                                    "tx_rate":"{:.2%}",  
                                    "atc_rate":"{:.2%}"}))
 
-# 11. SHAP Explanations (optional)  
+# 11. SHAP Explanations
 if show_shap:  
     st.header("SHAP Feature Importance")  
-    shap_feats = pd.read_csv(f"{SHAP_DIR}/shap_sample_class_sizes_{lead_model}.csv")  # example  
+    shap_feats = pd.read_csv(f"{SHAP_DIR}/shap_sample_class_sizes_kmeans_12")   
     st.dataframe(shap_feats)  
     shap_img = f"{FIGS_DIR}/{lead_model}_shap_beeswarm.png"  # adjust naming  
     st.image(shap_img, caption=f"SHAP Beeswarm – {lead_model}", use_column_width=True)
