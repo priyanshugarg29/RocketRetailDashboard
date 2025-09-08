@@ -90,8 +90,8 @@ st.plotly_chart(fig_umap, use_container_width=True)
 
 # 7. Internal Metrics Comparison  
 st.header("Model Evaluation Metrics")  
-st.markdown("below visualization maps customer sessions into a two-dimensional space where points closer to each other represent more similar shopping behaviours. Different clusters or groupings highlight different customer types, helping the business tailor its marketing, product, and service strategies to better meet their needs and achieve targets. 
-While the approach for grouping may vary, all models aim to uncover meaningful patterns in how customers interact with the site.")
+st.markdown("""Below visualization maps customer sessions into a two-dimensional space where points closer to each other represent more similar shopping behaviours. Different clusters or groupings highlight different customer types, helping the business tailor its marketing, product, and service strategies to better meet their needs and achieve targets. 
+While the approach for grouping may vary, all models aim to uncover meaningful patterns in how customers interact with the site.""")
 metrics = pd.read_csv(f"{TABLES_DIR}/20250827_195718_eval_internal_metrics.csv")  
 st.dataframe(metrics.style.format({"silhouette":"{:.4f}",  
                                    "calinski_harabasz":"{:.0f}",  
