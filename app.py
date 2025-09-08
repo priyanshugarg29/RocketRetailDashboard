@@ -100,10 +100,10 @@ st.dataframe(persona.style.format({"share":"{:.2%}",
 # 11. SHAP Explanations
 if show_shap:  
     st.header("SHAP Feature Importance")  
-    shap_feats = pd.read_csv(f"{SHAP_DIR}/shap_sample_class_sizes_kmeans_12")   
+    shap_feats = pd.read_csv(f"{SHAP_DIR}/shap_sample_class_sizes_agg_ward_12.csv")   
     st.dataframe(shap_feats)  
-    shap_img = f"{FIGS_DIR}/{lead_model}_shap_beeswarm.png"  # adjust naming  
-    st.image(shap_img, caption=f"SHAP Beeswarm – {lead_model}", use_column_width=True)
+    shap_img = f"{FIGS_DIR}/"shap_beeswarm_agg_ward_12.png"" 
+    st.image(shap_img, caption=f"SHAP Beeswarm – ward linkage agglomerative clustering", use_column_width=True)
 
 # 12. Footer  
 st.markdown("---")  
