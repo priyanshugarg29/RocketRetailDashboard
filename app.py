@@ -92,10 +92,14 @@ st.plotly_chart(fig_umap, use_container_width=True)
 
 # 7. Internal Metrics Comparison  
 st.header("Model Evaluation Metrics")  
+st.markdown("""Below table provides a comparative overview of different clustering models applied to segment the Rocket Retail customer sessions, measured using multiple internal validity metrics.""")
 metrics = pd.read_csv(f"{TABLES_DIR}/20250827_195718_eval_internal_metrics.csv")  
 st.dataframe(metrics.style.format({"silhouette":"{:.4f}",  
                                    "calinski_harabasz":"{:.0f}",  
                                    "davies_bouldin":"{:.4f}"}))
+
+st.markdown("""The RFM proxy K-Means model yields the best internal validation metrics, suggesting it captures customer segments with stronger cohesion and separation as compared to other tested models. Agglomerative Ward linkage and Gaussian Mixture Models (GMM) show moderate results but with lower cluster quality measures. Density-based models like HDBSCAN and DBSCAN produced unstable or uninformative clusterings in this dataset.
+This means the RFM proxy K-Means segmentation is more reliable and interpretable for business applications and targeted marketing decisions than other tested models in this evaluation""")
 
 # 8. Cross-Model Agreement (ARI / AMI)  
 st.header("Cross-Model Agreement")  
