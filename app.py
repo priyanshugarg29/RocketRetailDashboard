@@ -45,7 +45,13 @@ st.header("Temporal Patterns")
 st.markdown("""Below temporal patterns reveal when the website is most and least active, helping managers align campaigns and support resources with peak demand times, maximizing operational efficiency and marketing impact.""")
 hr = pd.read_csv(f"{TABLES_DIR}/temporal_hour_event_counts.csv")  
 fig_hr = px.line(hr, x="hour", y="count", color="event", title="Hourly Event Volume")  
-st.plotly_chart(fig_hr, use_container_width=True)  
+st.plotly_chart(fig_hr, use_container_width=True) 
+st.markdown(""" Above graph shows the daily clickstream rhythm of Rocket Retail’s customers, revealing how activity flows across each hour.
+Most visitors seems to engage with the website during the late afternoon and evening, as evident by the steep rise in product views starting around 15:00, peaking around 18:00–21:00. 
+This is when shoppers are actively browsing, perhaps after work or during their leisure time.
+However, while browsing is frequent, the number of add-to-cart actions and completed transactions remains much lower throughout the day. These lines, close to the baseline, highlight how only a small fraction of visitors move beyond looking at products to actually starting or completing a purchase.
+
+For business leaders, this pattern is a valuable story: marketing campaigns, product launches, and customer support are likely to have the greatest impact if timed for these afternoon and evening peaks. Conversely, the quieter mid-morning and midday periods offer opportunities for behind-the-scenes work or targeted experiments without interfering with core customer engagement windows.""")
 dow = pd.read_csv(f"{TABLES_DIR}/temporal_dow_event_counts.csv")  
 fig_dow = px.line(dow, x="dow_label", y="count", color="event", title="Weekly Event Volume")  
 st.plotly_chart(fig_dow, use_container_width=True)
