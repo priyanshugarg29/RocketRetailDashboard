@@ -65,6 +65,9 @@ fig_funnel = px.bar(funnel, x="stage", y="sessions_reached", text="sessions_reac
                     title="Session-level Funnel")  
 fig_funnel.update_traces(texttemplate="%{text:,}", textposition="outside")  
 st.plotly_chart(fig_funnel, use_container_width=True)
+st.markdown("""This session funnel chart shows how many customer visits make it through each step of the shopping process. Nearly all sessions start with people viewing products (over 1.7 million times). But far fewer take the next step: only about 39,000 sessions end up with something added to the cart. Fewer still, just about 11,000, actually lead to a completed purchase.
+This suggests that while lots of people are interested enough to browse, most decide not to add anything to their cart, and even fewer go on to buy. For the business, this highlights the biggest drop-off points—helping focus efforts on encouraging more browsers to try adding to cart, and nudging those with items in the cart to finish their transaction. 
+This graph highlights where to act to turn interest into actual sales.""")
 
 # 6. UMAP Projection  
 st.header("UMAP Visualization")  
