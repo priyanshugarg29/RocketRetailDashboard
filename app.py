@@ -9,7 +9,7 @@ from pathlib import Path
 DATA_DIR      =  Path(__file__).parent.parent
 FIGS_DIR      = f"{DATA_DIR}/figs"  
 TABLES_DIR    = f"{DATA_DIR}/data"  
-SHAP_DIR      = f"{DATA_DIR}/shap"  
+SHAP_DIR      = f"{DATA_DIR}/data"  
 SESSION_INDEX = pd.read_csv(f"{TABLES_DIR}/20250827_195718_dataset_overview.csv")["sessions"]  # adjust  
 
 st.set_page_config(page_title="Rocket Retail Segmentation", layout="wide")
@@ -92,7 +92,7 @@ if time_split:
 
 # 10. Segment Personas  
 st.header("Segment Personas")  
-persona = pd.read_csv(f"{DATA_DIR}/20250827_195718_session_rfm_proxy_profile_k12.csv")  
+persona = pd.read_csv(f"{SHAP_DIR}/20250827_195718_session_rfm_proxy_profile_k12.csv")  
 st.dataframe(persona.style.format({"share":"{:.2%}",  
                                    "tx_rate":"{:.2%}",  
                                    "atc_rate":"{:.2%}"}))
