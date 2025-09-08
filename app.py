@@ -31,10 +31,14 @@ st.markdown("""
 This demonstrates the size and richness of Rocket Retail’s dataset by accounting for total events (e.g., clicks, views), sessions, and unique customers. 
 This confirms that the downstream insights are built on a robust and representative sample, reaffirming confidence in the following findings.
 """)
+
 # Event distribution  
 evt = pd.read_csv(f"{TABLES_DIR}/event_distribution.csv")  
 fig_evt = px.bar(evt, x="event", y="count", title="Event Distribution")  
 st.plotly_chart(fig_evt, use_container_width=True)
+st.markdown("""Above event distribution chart indicates how customer activity is distributed, mainly with high count of product views, while having fewer add-to-carts and purchases events.
+Since, most visitors browse without advancing further, it highlights the significance of boosting conversion using targeted strategies to move more customers down the purchase funnel.
+""")
 
 # 4. Temporal Patterns  
 st.header("Temporal Patterns")  
