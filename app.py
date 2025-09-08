@@ -53,7 +53,7 @@ This pattern demonstrates a valuable story for business leaders as marketing cam
 dow = pd.read_csv(f"{TABLES_DIR}/temporal_dow_event_counts.csv")  
 fig_dow = px.line(dow, x="dow_label", y="count", color="event", title="Weekly Event Volume")  
 st.plotly_chart(fig_dow, use_container_width=True)
-st.markdown("""This chart shows how customer activity changes over the week on Rocket Retail. Most people visit and view products at the start of the week, with Monday and Tuesday being the busiest days for browsing. As the week goes on, the number of views slowly drops, reaching the lowest point on Saturday, before going up again a little on Sunday.
+st.markdown("""Above graph shows how customer activity changes over the week on Rocket Retail. Most people visit and view products at the start of the week, with Monday and Tuesday being the busiest days for browsing. As the week goes on, the number of views slowly drops, reaching the lowest point on Saturday, before going up again a little on Sunday.
 The number of customers adding items to their cart or making purchases stays low throughout the week, much lower than the number of people just viewing items. This means that while many shoppers are interested early in the week, only a few actually buy.
 For the business, this pattern suggests that running deals or campaigns at the start of the week could reach more active shoppers. Special weekend offers might also help turn more browsers into buyers when activity picks up again on Sunday. Understanding these weekly trends helps managers plan promotions to match when customers are most likely to engage.
 """)
